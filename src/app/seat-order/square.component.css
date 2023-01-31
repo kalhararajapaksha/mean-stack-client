@@ -1,9 +1,27 @@
+.left-hand {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.left-hand:last-child {
+  margin-bottom: 0;
+}
+
 .square {
-    width: 100px;
-    height: 100px;
-    margin-top: 10px;
-    margin-right: 10px;
-    float: right;
-    border-style: groove;
+  height: 70px;
+  margin-right: 10px;
+  cursor: pointer;
+  flex: 0 10 auto;
+  background-color: #b4b4b4 ;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
   }
 
+.square:hover {
+  background-color: #ec4545 !important;
+  color: #fff;
+  }

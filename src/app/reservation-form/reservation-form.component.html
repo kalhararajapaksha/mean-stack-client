@@ -1,24 +1,57 @@
-<app-navbar></app-navbar>
+<app-nav-bar-in></app-nav-bar-in>
+
+<style>
+  .bookseat{
+    text-align: left;
+    font-size: 30px;
+    background-color: #0d6efd;
+    width: 300px;
+    height: 220px;
+    color: white;
+    padding: 40px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    padding-top: 60px;
+    border-radius: 8px 0px 0px 8px;
+  }
+  .forms
+  {
+    margin-left: 20px;
+    padding: 20px;
+  }
+  .card
+  {
+    border-radius: 8px;
+  }
+  
+</style>
 <div class="container-md">
 <div class="row">
-  <div class="card mt-4 "> 
-  <div class="col-md-6 offset-md-3">
+  <div class="card mt-4 ">
+    <div class="row rowcol">
+      <div class="col-4 bookseat">
+        Book Your Seats
+      </div>
+      <div class="col-6 forms">
 
-     <form [formGroup]="searchForm">
-      <div class="form-group">
-        <label for="from">Destination:</label>
-        <select class="form-control" id="from"  name="from">
-        <option *ngFor="let station of stations$ | async" [value]="station._id">{{station.name}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="date">Date:</label>
-        <input type="date" class="form-control" id="date"  name="date" formControlName="date">
-      </div>
-      <br>
-      <input type="button" class="btn btn-primary btn-sm btn-block" (click)="viewDetails()" value="Search">
-        </form>
-      </div>
+        <form [formGroup]="searchForm">
+         <div class="form-group">
+           <label for="from">Destination</label>
+           <select class="form-control" id="from"  name="from">
+           <option *ngFor="let station of stations$ | async" [value]="station._id">{{station.name}}</option>
+           </select>
+         </div>
+         <div class="form-group">
+           <label for="date">Date</label>
+           <input type="date" class="form-control" id="date"  name="date" formControlName="date">
+         </div>
+         <br>
+         <input type="button" class="btn btn-primary btn-sm btn-block" (click)="viewDetails()" value="Search">
+           </form>
+         </div>
+    </div> 
+   
+
 
 </div>  
 </div>
@@ -31,7 +64,8 @@
 <h5 class="card-title">{{ data.train.train_name}}</h5>
 <p class="card-text">{{ data.train.time}}</p>
 <p class="card-text">Price: Rs {{ data.train.ticket_price}}</p>
-<button class="btn btn-primary  me-1" [routerLink]="['reservation/',data.schedule?.session_ID]">View Details</button>
+<div class="text-center"><button class="btn btn-primary  me-1" [routerLink]="['reservation/',data.schedule?.session_ID, data.train.time,data.train.train_name,data.train.ticket_price]">View Details</button></div>
+
 </div>
 </div>
 </div>

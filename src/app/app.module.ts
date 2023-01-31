@@ -16,6 +16,10 @@ import { UserSigninFormComponent } from './user-signin-form/user-signin-form.com
 import { CanvasComponent } from './canvas/canvas.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeroComponent } from './hero/hero.component';
+import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
+import { NavBarInComponent } from './nav-bar-in/nav-bar-in.component';
+import { CardDetailsComponent } from './card-details/card-details.component';
+import { ReservationListComponent } from './reservation-list/reservation-list.component';
 
  
 @NgModule({
@@ -31,7 +35,11 @@ import { HeroComponent } from './hero/hero.component';
    UserSigninFormComponent,
    CanvasComponent,
    NavbarComponent,
-   HeroComponent
+   HeroComponent,
+   TicketDetailsComponent,
+   NavBarInComponent,
+   CardDetailsComponent,
+   ReservationListComponent
  ],
  imports: [
    BrowserModule,

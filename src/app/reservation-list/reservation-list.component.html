@@ -1,0 +1,26 @@
+<app-nav-bar-in></app-nav-bar-in>
+<div class="container-md">
+<h2 class="text-center m-5">Your Reservations</h2>
+ 
+   <table class="table table-striped table-bordered">
+       <thead>
+           <tr class="text-center">
+               <th>Train No</th>
+               <th>Time</th>
+               <th>Price</th>
+            
+           </tr>
+       </thead>
+ 
+       <tbody>
+           <tr *ngFor="let reservation of reservations$ | async" class="text-center">            
+               <td>{{reservation.trainID}}</td>
+               <td>{{reservation.trainTime}}</td>
+               <td>{{reservation.total}}</td>
+
+           </tr>
+       </tbody>
+   </table>
+ 
+  
+</div>

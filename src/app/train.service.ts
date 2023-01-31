@@ -24,4 +24,8 @@ export class TrainService {
     this.refreshTrains();
     return this.Trains$;
   }
+
+  getTrainByID(train_name:string): Observable<Train> {
+    return this.httpClient.get<Train>(`${this.url}/trains/${train_name}`);
+  }
 }

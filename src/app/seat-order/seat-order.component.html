@@ -1,20 +1,88 @@
 <!-- <button id = 'btnCreate' (click)="send()">New Game</button>
  <button id = 'btnJoin' (click)="join()">Join Game</button> -->
 <!-- <input type = 'text' [formControl]="nameControl" id = 'txtGameId'> --> 
-<app-navbar></app-navbar>
+<app-nav-bar-in></app-nav-bar-in>
 <div id  = 'divPlayers'></div>
 <br>
 <div class="container-md">
     <div class="card bg-light mb-8" >
         <div class="card-header text-center">Class A</div>
-        <div class="card-body">
+        <div class="card-body seat-map">
             <div id ='left-hand' class="left-hand">
-                <div   *ngFor="let item of items;let i=index">
-                     <div [id]="i" class='square'  (click)="clickOnSeat(i)" [ngStyle]="{'background-color': backgroundColor}"></div>
-                </div>                 
+                 <div   *ngFor="let item of items;let i=index">
+                     <!-- <div [id]="i" class='square'  (click)="clickOnSeat(i)" [ngStyle]="{'background-color': backgroundColor}"></div> -->
+                     <div class='square'  (click)="clickOnSeat('L'+i)"  [id]="'L'+i" [ngStyle]="{'background-color': backgroundColor}">
+                        <span>
+                           L {{i+1}}
+                        </span>
+                    </div>
+                </div>                            
+                <!-- <div class='square' *ngFor="let item of items;let i=index" (click)="clickOnSeat(i)"  [id]="i" [ngStyle]="{'background-color': backgroundColor}">
+                    <span>
+                       L {{i+1}}
+                    </span>
+                </div> -->
            </div>
+
+           <div id ='left-hand' class="left-hand">
+               <div   *ngFor="let item of items;let i=index">
+                <!-- <div class='square' *ngFor="let item of items;let i=index"   [ngStyle]="{'background-color': backgroundColor}"> -->
+                    <div class='square'  (click)="clickOnSeat('R'+i)"  [id]="'R'+i" [ngStyle]="{'background-color': backgroundColor}">
+                    <span>
+                        R {{i+1}}
+                     </span>
+                    </div>
+                </div>
+            </div>
+            
          
         </div>
-      </div>
-<div>
+    </div>
+
+    <br>
+    <div class="card bg-light mb-8" >
+        <!-- <div class="card-header text-center">Ticket Details</div> -->
+        <div class="card-body seat-map">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="jumbotron">
+                    <h1 class="display-4">Welcome to Sri Lanka Railways</h1>
+                    <p class="lead">Online Advance Train Seats Reservation.</p>
+                    <hr class="my-4">
+                  
+
+                  </div>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Train No
+                  <span class="" #trainNameRef>{{trainName}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Time
+                  <span class="" #trainTimeID>{{trainTime}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Seats
+                  <span class="">{{seats}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Total
+                  <span class="" #price>Rs {{seats*trainPrice}}</span>
+                </li>
+                <button type="button" (click)="saveticket()" class="list-group-item list-group-item-action active text-center">
+                    Get Your Ticket
+                  </button>
+              </ul>
+              
+        </div>
+       </div>
+     
+        </div>
+    </div>
+    <br>
+</div>
+
 

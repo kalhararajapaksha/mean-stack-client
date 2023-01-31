@@ -19,12 +19,7 @@ export class EmployeesListComponent implements OnInit {
    this.fetchEmployees();
  }
  
- deleteEmployee(id: string): void {
-   this.employeesService.deleteEmployee(id).subscribe({
-     next: () => this.fetchEmployees()
-   });
- }
- 
+
  private fetchEmployees(): void {
    this.trains$ = this.trainService.getTrains();
   //  this.employees$ = this.employeesService.getEmployees();
